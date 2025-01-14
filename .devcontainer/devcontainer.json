@@ -1,0 +1,15 @@
+{
+  "name": "Rust Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "appPort": ["127.0.0.1:8080:8080"],
+  "runArgs": ["--name", "rustcontainer", "--hostname", "rustcontainer", "--userns=keep-id"],
+  "containerEnv": {
+    "TERM": "${localEnv:TERM}",
+    "LANG": "${localEnv:LANG}",
+    "LC_ALL": "${localEnv:LC_ALL}"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/user/workspace,type=bind",
+  "remoteUser": "user"
+}
