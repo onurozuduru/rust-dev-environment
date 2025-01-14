@@ -18,12 +18,6 @@ if ! command -v rustup &>/dev/null; then
 	exit 1
 fi
 
-# Check if rust-analyzer is already installed, if so, exit
-if rustup component list | grep -q "rust-analyzer"; then
-	echo "rust-analyzer is already installed"
-	exit 0
-fi
-
 CMD="rustup component add rust-analyzer"
 echo "Running: $CMD"
 if ! $CMD; then
